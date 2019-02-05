@@ -1,0 +1,25 @@
+<ul>
+{% if cats %}
+    {% for c in cats %}
+        {% if c == act_cat %}
+            <li>
+            <strong>
+            <a href="{% url 'show_category' c.slug %}">{{ c.name }}</a>
+            </strong>
+            </li>
+        {% else %}
+        
+            {% comment %} <li>
+            {{ c.name }} {{ c.slug }}
+            </li> {% endcomment %}
+        {% comment %} {% if c.slug %} {% endcomment %}
+
+            <li>
+            <a href="{% url 'show_category' c.slug %}">{{ c.name }}</a>
+            </li>
+            {% comment %} {% endif %} {% endcomment %}
+
+        {% endif %}
+    {% endfor %}
+{% endif %}
+</ul>
